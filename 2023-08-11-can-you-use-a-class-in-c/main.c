@@ -2,7 +2,7 @@
 #include "rational.h"
 
 int main(void) {
-  void *r = make_rational(5, 3);
+  Rational *r = make_rational(5, 3);
   if (r == NULL) {
     printf("Denominator is 0\n");
     return -1;

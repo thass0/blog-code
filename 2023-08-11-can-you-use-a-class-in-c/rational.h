@@ -16,17 +16,23 @@ public:
     }
   }
 };
-#endif  // __cplusplus
+
+#else
+
+// Opaque type as a C proxy for the class.
+typedef struct Rational Rational;
+
+#endif // __cplusplus
 
 #ifdef __cplusplus
-#define extern_c extern "C"
-#else
-#define extern_c
+extern "C" {
 #endif  // __cplusplus
 
-extern_c void *make_rational(int numer, int denom);
-extern_c int get_numer(void *r);
-extern_c int get_denom(void *r);
-extern_c void del_rational(void **rp);
+Rational *make_rational(int numer, int denom);
+int get_numer(const Rational *r);
+int get_denom(const Rational *r);
+void del_rational(Rational **rp);
 
-#undef extern_c
+#ifdef __cplusplus
+}  // extern "C"
+#endif  // __cplusplus
