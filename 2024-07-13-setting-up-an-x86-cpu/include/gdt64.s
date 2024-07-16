@@ -23,7 +23,7 @@ gdt64_data_segment:
     ;; 0-3: segment type that specifies a read/write data segment
     db 10010010b
     db 10101111b
-    dw 0x00
+    db 0x00
 
 gdt64_end:
 
